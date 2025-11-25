@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python AI Learning Hub - Advanced Resources</title>
+    <style>
+        :root {
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+                
+                --color-bg-1: rgba(29, 78, 216, 0.15);
+                --color-bg-2: rgba(180, 83, 9, 0.15);
+                --color-bg-3: rgba(21, 128, 61, 0.15);
+                --color-bg-4: rgba(185, 28, 28, 0.15);
+                --color-bg-5: rgba(107, 33, 168, 0.15);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .header p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            overflow-x: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            background: transparent;
+            color: var(--color-text);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: var(--color-secondary-hover);
+        }
+
+        .tab-btn.active {
+            background: var(--color-primary);
+            color: var(--color-cream-50);
+            border-color: var(--color-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .search-box {
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: 2px solid var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .resource-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .resource-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .type-notes { background: var(--color-bg-1); color: var(--color-primary); }
+        .type-video { background: var(--color-bg-4); color: #e53e3e; }
+        .type-whitepaper { background: var(--color-bg-2); color: #d97706; }
+        .type-handson { background: var(--color-bg-3); color: #16a34a; }
+        .type-project { background: var(--color-bg-5); color: #7c3aed; }
+
+        .resource-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .resource-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+        }
+
+        .resource-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.5rem;
+            background: var(--color-secondary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+        }
+
+        .resource-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--color-primary);
+            color: var(--color-cream-50);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .resource-link:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .filter-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: 500;
+            color: var(--color-text);
+            font-size: 0.875rem;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-size: 0.875rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--color-text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🐍 Python AI Learning Hub</h1>
+        <p>Curated resources for advanced Python in AI, Data Science &amp; Machine Learning</p>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="tab-btn active" data-tab="all">All Resources</button>
+        <button class="tab-btn" data-tab="notes">Notes &amp; Tutorials</button>
+        <button class="tab-btn" data-tab="videos">Video Lectures</button>
+        <button class="tab-btn" data-tab="whitepapers">White Papers</button>
+        <button class="tab-btn" data-tab="handson">Hands-on Labs</button>
+        <button class="tab-btn" data-tab="projects">Real-time Projects</button>
+    </div>
+
+    <div class="container">
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="Search resources by title, topic, or tag..."
+            >
+        </div>
+
+        <div class="filter-section">
+            <span class="filter-label">Filter by Topic:</span>
+            <select id="topicFilter" class="filter-select">
+                <option value="all">All Topics</option>
+                <option value="machine-learning">Machine Learning</option>
+                <option value="deep-learning">Deep Learning</option>
+                <option value="data-science">Data Science</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="nlp">Natural Language Processing</option>
+                <option value="computer-vision">Computer Vision</option>
+            </select>
+
+            <span class="filter-label">Difficulty:</span>
+            <select id="difficultyFilter" class="filter-select">
+                <option value="all">All Levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+
+        <div id="allTab" class="tab-content active">
+            <div id="resourcesContainer" class="resource-grid"></div>
+        </div>
+
+        <div id="notesTab" class="tab-content">
+            <div class="resource-grid" data-type="notes"></div>
+        </div>
+
+        <div id="videosTab" class="tab-content">
+            <div class="resource-grid" data-type="video"></div>
+        </div>
+
+        <div id="whitepapersTab" class="tab-content">
+            <div class="resource-grid" data-type="whitepaper"></div>
+        </div>
+
+        <div id="handsonTab" class="tab-content">
+            <div class="resource-grid" data-type="handson"></div>
+        </div>
+
+        <div id="projectsTab" class="tab-content">
+            <div class="resource-grid" data-type="project"></div>
+        </div>
+    </div>
+
+    <script>
+        const resources = [
+            {
+                type: 'video',
+                title: 'Machine Learning Specialization by Andrew Ng',
+                description: 'Foundational online program by DeepLearning.AI and Stanford. Covers ML fundamentals and real-world AI applications.',
+                url: 'https://www.deeplearning.ai/courses/machine-learning-specialization/',
+                topics: ['machine-learning', 'ai'],
+                difficulty: 'beginner',
+                duration: '3 months',
+                tags: ['Supervised Learning', 'Neural Networks', 'TensorFlow']
+            },
+            {
+                type: 'video',
+                title: 'AI Python for Beginners - Andrew Ng',
+                description: 'Learn Python programming with AI assistance. Build applications from day one with practical projects.',
+                url: 'https://www.deeplearning.ai/short-courses/ai-python-for-beginners/',
+                topics: ['machine-learning', 'ai'],
+                difficulty: 'beginner',
+                duration: '10 hours',
+                tags: ['Python Basics', 'AI Integration', 'Hands-on']
+            },
+            {
+                type: 'video',
+                title: 'Stanford CS229: Machine Learning',
+                description: 'Complete machine learning course from Stanford covering algorithms, theory, and implementation.',
+                url: 'https://www.youtube.com/watch?v=jGwO_UgTS7I',
+                topics: ['machine-learning', 'ai'],
+                difficulty: 'advanced',
+                duration: '20 hours',
+                tags: ['Algorithms', 'Theory', 'Math']
+            },
+            {
+                type: 'video',
+                title: 'Corey Schafer Python Tutorials',
+                description: 'Comprehensive YouTube tutorials covering Python basics to advanced topics including web dev and data visualization.',
+                url: 'https://www.youtube.com/c/Coreyms',
+                topics: ['data-science', 'machine-learning'],
+                difficulty: 'intermediate',
+                duration: '50+ hours',
+                tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib']
+            },
+            {
+                type: 'notes',
+                title: 'Python for Data Science - Cognitive Class',
+                description: 'Beginner-friendly course covering Python basics, data structures, and working with data using Pandas and NumPy.',
+                url: 'https://cognitiveclass.ai/courses/python-for-data-science',
+                topics: ['data-science'],
+                difficulty: 'beginner',
+                duration: '18 hours',
+                tags: ['Pandas', 'NumPy', 'Data Analysis']
+            },
+            {
+                type: 'notes',
+                title: 'Data Science with Python Tutorial - GeeksforGeeks',
+                description: 'Complete tutorial covering data loading, preprocessing, analysis, and visualization with Python.',
+                url: 'https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/',
+                topics: ['data-science'],
+                difficulty: 'intermediate',
+                duration: 'Self-paced',
+                tags: ['Pandas', 'Scikit-learn', 'EDA', 'Preprocessing']
+            },
+            {
+                type: 'notes',
+                title: 'Python for Everybody - Coursera',
+                description: 'Dr. Charles Severance\'s comprehensive course from basics to data handling with video lectures and assignments.',
+                url: 'https://www.coursera.org/specializations/python',
+                topics: ['data-science'],
+                difficulty: 'beginner',
+                duration: '8 months',
+                tags: ['Fundamentals', 'Data Structures', 'Web Data']
+            },
+            {
+                type: 'notes',
+                title: 'Think Python by Allen B. Downey',
+                description: 'Open-access e-book perfect for self-learners with practical examples and exercises.',
+                url: 'https://greenteapress.com/wp/think-python-2e/',
+                topics: ['machine-learning', 'data-science'],
+                difficulty: 'beginner',
+                duration: 'Self-paced',
+                tags: ['Fundamentals', 'Algorithms', 'Problem Solving']
+            },
+            {
+                type: 'whitepaper',
+                title: 'Smart Success: AI and Data Science Across Organizations',
+                description: 'OpenText white paper on implementing AI structure, data science lifecycle, and team building.',
+                url: 'https://www.opentext.com/assets/documents/en-US/pdf/opentext-successful-data-science-and-ai-white-paper.pdf',
+                topics: ['ai', 'data-science'],
+                difficulty: 'intermediate',
+                duration: '30 min read',
+                tags: ['MLOps', 'Strategy', 'Team Building']
+            },
+            {
+                type: 'whitepaper',
+                title: 'Python for Data Science and Machine Learning - IJCRT',
+                description: 'Research paper on Python tools for data science including NumPy, TensorFlow, Keras, and Matplotlib.',
+                url: 'https://ijcrt.org/papers/IJCRT2203118.pdf',
+                topics: ['data-science', 'machine-learning'],
+                difficulty: 'intermediate',
+                duration: '45 min read',
+                tags: ['Libraries', 'Frameworks', 'Applications']
+            },
+            {
+                type: 'whitepaper',
+                title: 'Machine Learning and Python Framework Study',
+                description: 'Comprehensive study on ML activities using Python, covering history, methods, and applications.',
+                url: 'https://www.ijcseonline.org/pub_paper/11-IJCSE-08890-07.pdf',
+                topics: ['machine-learning'],
+                difficulty: 'advanced',
+                duration: '1 hour read',
+                tags: ['Deep Learning', 'Algorithms', 'Research']
+            },
+            {
+                type: 'handson',
+                title: '30 Days of Python Challenge',
+                description: 'Structured 30-day Python challenge covering fundamentals with daily hands-on exercises.',
+                url: 'https://github.com/Asabeneh/30-Days-Of-Python',
+                topics: ['machine-learning', 'data-science'],
+                difficulty: 'beginner',
+                duration: '30 days',
+                tags: ['Exercises', 'Daily Practice', 'Projects']
+            },
+            {
+                type: 'handson',
+                title: 'Python Programming Exercises - 100+ Challenges',
+                description: 'Collection of 100+ coding exercises to improve problem-solving skills in Python.',
+                url: 'https://github.com/zhiwehu/Python-programming-exercises',
+                topics: ['machine-learning', 'data-science'],
+                difficulty: 'intermediate',
+                duration: 'Self-paced',
+                tags: ['Coding Challenges', 'Algorithms', 'Practice']
+            },
+            {
+                type: 'handson',
+                title: 'The Algorithms - Python',
+                description: 'Well-organized collection of Python algorithms for learning data structures and problem-solving.',
+                url: 'https://github.com/TheAlgorithms/Python',
+                topics: ['machine-learning'],
+                difficulty: 'intermediate',
+                duration: 'Self-paced',
+                tags: ['Algorithms', 'Data Structures', 'Implementation']
+            },
+            {
+                type: 'handson',
+                title: '50+ Python Apps in 10 Lines - qxresearch',
+                description: 'Quick Python applications covering ML, Deep Learning, GUI, and Computer Vision with video explanations.',
+                url: 'https://github.com/qxresearch/qxresearch-event-1',
+                topics: ['machine-learning', 'deep-learning', 'computer-vision'],
+                difficulty: 'beginner',
+                duration: 'Self-paced',
+                tags: ['Quick Projects', 'ML', 'CV', 'GUI']
+            },
+            {
+                type: 'handson',
+                title: 'Amazing Python Scripts',
+                description: 'Compilation of Python scripts for automation, web scraping, and various practical applications.',
+                url: 'https://github.com/avinashkranjan/Amazing-Python-Scripts',
+                topics: ['data-science'],
+                difficulty: 'beginner',
+                duration: 'Self-paced',
+                tags: ['Automation', 'Web Scraping', 'Utilities']
+            },
+            {
+                type: 'handson',
+                title: 'LeetCode Python Practice',
+                description: 'Coding challenges from beginner to advanced to improve algorithms and data structures knowledge.',
+                url: 'https://leetcode.com/problemset/all/',
+                topics: ['machine-learning', 'data-science'],
+                difficulty: 'intermediate',
+                duration: 'Ongoing',
+                tags: ['Interview Prep', 'Algorithms', 'Challenges']
+            },
+            {
+                type: 'project',
+                title: '250+ End-to-End Data Science Projects - ProjectPro',
+                description: 'Real-world ML and data science projects with source code for production deployment.',
+                url: 'https://www.projectpro.io/projects/data-science-projects',
+                topics: ['data-science', 'machine-learning'],
+                difficulty: 'advanced',
+                duration: 'Varies',
+                tags: ['Real-world', 'MLOps', 'Production']
+            },
+            {
+                type: 'project',
+                title: 'IEEE Python ML Projects 2025-2026',
+                description: 'Latest IEEE machine learning, deep learning, and AI project titles for final year students.',
+                url: 'https://www.ieeexpert.com/ieee-python-projects-2021-2022-machine_learning-project-titles/',
+                topics: ['machine-learning', 'deep-learning', 'ai'],
+                difficulty: 'advanced',
+                duration: 'Varies',
+                tags: ['Research', 'IEEE', 'Academic']
+            },
+            {
+                type: 'project',
+                title: 'Project-Based Learning Repository',
+                description: 'Learn Python by working on real-world projects across various domains.',
+                url: 'https://github.com/practical-tutorials/project-based-learning',
+                topics: ['machine-learning', 'data-science'],
+                difficulty: 'intermediate',
+                duration: 'Self-paced',
+                tags: ['Hands-on', 'Real Projects', 'Portfolio']
+            },
+            {
+                type: 'project',
+                title: '100 Days of ML Code',
+                description: 'Step-by-step Machine Learning roadmap with Python covering all major ML concepts.',
+                url: 'https://github.com/Avik-Jain/100-Days-Of-ML-Code',
+                topics: ['machine-learning'],
+                difficulty: 'intermediate',
+                duration: '100 days',
+                tags: ['Daily Learning', 'ML Algorithms', 'Roadmap']
+            },
+            {
+                type: 'project',
+                title: 'Python AI Projects for Beginners - Brolly Academy',
+                description: '50+ Python AI projects with source code including Tic-Tac-Toe AI, MNIST recognition, and more.',
+                url: 'https://brollyacademy.com/python-ai-projects/',
+                topics: ['ai', 'machine-learning', 'deep-learning'],
+                difficulty: 'beginner',
+                duration: 'Self-paced',
+                tags: ['Beginner Projects', 'AI', 'Tutorials']
+            },
+            {
+                type: 'notes',
+                title: 'Keras Deep Learning Tutorial',
+                description: 'User-friendly neural network library in Python for minimizing time from idea to working model.',
+                url: 'https://www.datacamp.com/tutorial/deep-learning-python',
+                topics: ['deep-learning'],
+                difficulty: 'intermediate',
+                duration: '3 hours',
+                tags: ['Keras', 'Neural Networks', 'TensorFlow']
+            },
+            {
+                type: 'handson',
+                title: 'Python for Data Science - DataCamp',
+                description: 'Hands-on practice with real datasets including Jupyter Notebook exercises and projects.',
+                url: 'https://www.codecademy.com/learn/getting-started-with-python-for-data-science',
+                topics: ['data-science'],
+                difficulty: 'beginner',
+                duration: '7 hours',
+                tags: ['Pandas', 'Real Data', 'Jupyter']
+            },
+            {
+                type: 'handson',
+                title: 'Learn Python 3 Interactive Guide',
+                description: 'Beginner-friendly Python 3 guide with practical examples and hands-on exercises.',
+                url: 'https://github.com/jerry-git/learn-python3',
+                topics: ['data-science', 'machine-learning'],
+                difficulty: 'beginner',
+                duration: 'Self-paced',
+                tags: ['Python 3', 'Interactive', 'Examples']
+            },
+            {
+                type: 'project',
+                title: 'Speech Emotion Recognition using ANN',
+                description: 'Build a model to classify human emotions from speech using artificial neural networks.',
+                url: 'https://www.projectpro.io/project-use-case/speech-emotion-recognition-using-ann',
+                topics: ['deep-learning', 'nlp'],
+                difficulty: 'advanced',
+                duration: '2 weeks',
+                tags: ['Audio Processing', 'ANN', 'Classification']
+            },
+            {
+                type: 'project',
+                title: 'Medical Imaging Classification',
+                description: 'Categorize medical imaging data to identify tumor types using ML algorithms.',
+                url: 'https://www.projectpro.io/projects/data-science-projects',
+                topics: ['machine-learning', 'computer-vision'],
+                difficulty: 'advanced',
+                duration: '3 weeks',
+                tags: ['Healthcare', 'Image Classification', 'CNN']
+            },
+            {
+                type: 'notes',
+                title: 'Python Best Practices Guide',
+                description: 'Detailed guide covering Python development tools, best practices, and advanced concepts.',
+                url: 'https://github.com/realpython/python-guide',
+                topics: ['data-science', 'machine-learning'],
+                difficulty: 'intermediate',
+                duration: 'Self-paced',
+                tags: ['Best Practices', 'Style Guide', 'Tools']
+            }
+        ];
+
+        let currentFilter = {
+            tab: 'all',
+            topic: 'all',
+            difficulty: 'all',
+            search: ''
+        };
+
+        function renderResources() {
+            const containers = document.querySelectorAll('.resource-grid');
+            containers.forEach(container => container.innerHTML = '');
+
+            const filtered = resources.filter(resource => {
+                const matchTab = currentFilter.tab === 'all' || resource.type === currentFilter.tab;
+                const matchTopic = currentFilter.topic === 'all' || resource.topics.includes(currentFilter.topic);
+                const matchDifficulty = currentFilter.difficulty === 'all' || resource.difficulty === currentFilter.difficulty;
+                const matchSearch = currentFilter.search === '' || 
+                    resource.title.toLowerCase().includes(currentFilter.search.toLowerCase()) ||
+                    resource.description.toLowerCase().includes(currentFilter.search.toLowerCase()) ||
+                    resource.tags.some(tag => tag.toLowerCase().includes(currentFilter.search.toLowerCase()));
+                
+                return matchTab && matchTopic && matchDifficulty && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                const activeContainer = document.querySelector('.tab-content.active .resource-grid') || 
+                                      document.getElementById('resourcesContainer');
+                activeContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <p>No resources found matching your criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(resource => {
+                const card = createResourceCard(resource);
+                
+                if (currentFilter.tab === 'all') {
+                    document.getElementById('resourcesContainer').appendChild(card);
+                } else {
+                    const typeContainer = document.querySelector(`[data-type="${resource.type}"]`);
+                    if (typeContainer) {
+                        typeContainer.appendChild(card);
+                    }
+                }
+            });
+        }
+
+        function createResourceCard(resource) {
+            const card = document.createElement('div');
+            card.className = 'resource-card';
+            
+            const typeLabels = {
+                'notes': 'Notes & Tutorial',
+                'video': 'Video Lecture',
+                'whitepaper': 'White Paper',
+                'handson': 'Hands-on Lab',
+                'project': 'Real Project'
+            };
+
+            card.innerHTML = `
+                <span class="resource-type type-${resource.type}">${typeLabels[resource.type]}</span>
+                <h3>${resource.title}</h3>
+                <p>${resource.description}</p>
+                <div class="resource-meta">
+                    <span class="meta-item">⏱️ ${resource.duration}</span>
+                    <span class="meta-item">📊 ${resource.difficulty.charAt(0).toUpperCase() + resource.difficulty.slice(1)}</span>
+                </div>
+                <div class="resource-tags">
+                    ${resource.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                <a href="${resource.url}" target="_blank" rel="noopener noreferrer" class="resource-link">
+                    Access Resource →
+                </a>
+            `;
+            
+            return card;
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const tab = btn.dataset.tab;
+                currentFilter.tab = tab;
+                
+                const tabMap = {
+                    'all': 'allTab',
+                    'notes': 'notesTab',
+                    'videos': 'videosTab',
+                    'whitepapers': 'whitepapersTab',
+                    'handson': 'handsonTab',
+                    'projects': 'projectsTab'
+                };
+                
+                document.getElementById(tabMap[tab]).classList.add('active');
+                renderResources();
+            });
+        });
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentFilter.search = e.target.value;
+            renderResources();
+        });
+
+        // Topic filter
+        document.getElementById('topicFilter').addEventListener('change', (e) => {
+            currentFilter.topic = e.target.value;
+            renderResources();
+        });
+
+        // Difficulty filter
+        document.getElementById('difficultyFilter').addEventListener('change', (e) => {
+            currentFilter.difficulty = e.target.value;
+            renderResources();
+        });
+
+        // Initial render
+        renderResources();
+    </script>
+</body>
+</html>
